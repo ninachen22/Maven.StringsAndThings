@@ -39,4 +39,11 @@ public class RemoveStringTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void withoutStringTest4(){
+        String expected = "ello tere";
+        String actual = stringsAndThings.removeString("Hello there", "h");
+        Assert.assertEquals(expected, actual);
+    }
+
 }

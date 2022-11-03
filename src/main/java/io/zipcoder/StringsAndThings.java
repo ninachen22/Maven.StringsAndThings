@@ -1,6 +1,13 @@
 package io.zipcoder;
 
 
+//import com.sun.tools.javac.util.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author tariq
  */
@@ -22,7 +29,7 @@ public class StringsAndThings {
         for (int i = 0; i < arrLength; i++) {
             if (words[i].charAt(words[i].length() - 1) == 'y' || words[i].charAt(words[i].length() - 1) == 'z') {
                 freq++;
-            } else;
+            } else ;
         }
         return freq;
 //        String[] words = input.split(" ");
@@ -47,6 +54,7 @@ public class StringsAndThings {
 //            }
 //        }
 //        return counter;
+
     }
 
     /**
@@ -59,7 +67,11 @@ public class StringsAndThings {
      * removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove) {
-        return null;
+        String newString = base.replaceAll(remove.toUpperCase(), "");
+        String finalString = newString.replaceAll(remove.toLowerCase(), "");
+//        String newString = base.replaceAll(remove, "");
+        return finalString;
+//        return null;
     }
 
     /**
@@ -71,7 +83,23 @@ public class StringsAndThings {
      * containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input) {
-        return null;
+        Integer isCount = 0;
+        Integer notCount = 0;
+
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (input.charAt(i) == 'i' && input.charAt(i + 1) == 's') {
+                isCount++;
+            } else if (input.charAt(i) == 'n' && input.charAt(i + 1) == 'o' && input.charAt(i + 2) == 't') {
+                notCount++;
+            }
+        }
+        if (isCount == notCount) {
+            return true;
+        } else {
+            return false;
+        }
+
+//        return null;
     }
 
     /**
@@ -82,7 +110,24 @@ public class StringsAndThings {
      * gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input) {
-        return null;
+//        boolean boo = false;
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (input.charAt(i) == 'g' && input.charAt(i + 1) != 'g') {
+                if (input.charAt(i) == 'g' && input.charAt(i - 1) != 'g') {
+                    return false;
+                } else {
+                }
+            }
+        }
+        return true;
+//            if (input.charAt(i) != 'g' && input.charAt(i +1) != 'g') {
+//                continue;
+//            } else if (input.charAt(i) == 'g' && input.charAt(i + 1) != 'g') {
+//                boo = false;
+//            } else if (input.charAt(i) == 'g' && input.charAt(i + 1) == 'g') {
+//                boo = true;
+//            }
+//        } return boo;
     }
 
 
@@ -94,6 +139,13 @@ public class StringsAndThings {
      * countTriple("a") // Should return 0
      */
     public Integer countTriple(String input) {
-        return null;
+        Integer freq = 0;
+
+        for (int i = 0; i < input.length() - 2; i++) {
+            if (input.charAt(i) == input.charAt(i + 1) && input.charAt(i + 1) == input.charAt(i + 2)) {
+                freq++;
+            }
+        }
+        return freq;
     }
 }
